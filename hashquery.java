@@ -8,12 +8,12 @@ public class hashquery {
     // initialize
     public static void main(String args[])
     {
-
+        
+        hashquery query = new hashquery();
         // calculate query time
         long startTime = System.currentTimeMillis();
-
-        readHash(args[0]);
-
+        
+        query.readArguments(args);
         long endTime = System.currentTimeMillis();
 
         System.out.println("Query time: " + (endTime - startTime) + "ms");
@@ -21,7 +21,7 @@ public class hashquery {
 
 
     // reading command line arguments
-    public static void readArguments(String args[])
+    public  void readArguments(String args[])
     {
         if (args.length == 2)
         {
@@ -34,7 +34,7 @@ public class hashquery {
         }
     }
 
-    public static void readHash(String x){
+    public  void readHash(String x){
 
 
 
