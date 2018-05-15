@@ -8,11 +8,11 @@ public class hashquery {
     // initialize
     public static void main(String args[])
     {
-        
+
         hashquery query = new hashquery();
         // calculate query time
         long startTime = System.currentTimeMillis();
-        
+
         query.readArguments(args);
         long endTime = System.currentTimeMillis();
 
@@ -25,7 +25,7 @@ public class hashquery {
     {
         if (args.length == 2)
         {
-            readHash(args[0]);
+            readHash(args[0], args[1]);
 
         }
         else
@@ -34,12 +34,12 @@ public class hashquery {
         }
     }
 
-    public  void readHash(String x){
+    public  void readHash(String filelocation, String x){
 
 
 
         try{
-            RandomAccessFile raf = new RandomAccessFile("test.txt", "r");
+            RandomAccessFile raf = new RandomAccessFile(filelocation, "r");
 
             int bucket = (x.hashCode() & 0xfffffff) % 4000000;
             byte BUCKET_SIZE = (byte) 300;
@@ -51,7 +51,7 @@ public class hashquery {
             //  System.out.println(BN_NAME);
             //}
 
-	
+
 
             raf.seek(offset);
             System.out.println(raf.read());
